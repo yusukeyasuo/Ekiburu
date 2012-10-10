@@ -45,29 +45,29 @@
     attributes:(NSDictionary *)attributeDict{
     currentElement = [elementName copy];
     
-    if ([elementName isEqualToString:@"station_name"]) {
+    if ([elementName isEqualToString:@"name"]) {
         inElement = YES;
-    } else if ([elementName isEqualToString:@"line_name"]) {
+    } else if ([elementName isEqualToString:@"line"]) {
         inElement = YES;
-    } else if ([elementName isEqualToString:@"lon"]) {
+    } else if ([elementName isEqualToString:@"x"]) {
         inElement = YES;
-    } else if ([elementName isEqualToString:@"lat"]) {
+    } else if ([elementName isEqualToString:@"y"]) {
         inElement = YES;
     }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if ([currentElement isEqualToString:@"station_name"] && inElement == YES) {
+    if ([currentElement isEqualToString:@"name"] && inElement == YES) {
         [stations addObject:string];
-    } else if ([currentElement isEqualToString:@"line_name"] && inElement == YES) {
+    } else if ([currentElement isEqualToString:@"line"] && inElement == YES) {
         if (line == nil) {
             line = string;
         } else {
             line = [NSString stringWithFormat:@"%@%@",line,string];
         }
-    } else if ([currentElement isEqualToString:@"lon"] && inElement == YES) {
+    } else if ([currentElement isEqualToString:@"x"] && inElement == YES) {
         [lon addObject:string];
-    } else if ([currentElement isEqualToString:@"lat"] && inElement == YES) {
+    } else if ([currentElement isEqualToString:@"y"] && inElement == YES) {
         [lat addObject:string];
     }
 }
@@ -76,15 +76,15 @@
   namespaceURI:(NSString *)namespaceURI
  qualifiedName:(NSString *)qName{
     
-    if ([elementName isEqualToString:@"station_name"]) {
+    if ([elementName isEqualToString:@"name"]) {
         inElement = NO;
-    } else if ([elementName isEqualToString:@"line_name"]) {
+    } else if ([elementName isEqualToString:@"line"]) {
         inElement = NO;
         [lines addObject:line];
         line = nil;
-    } else if ([elementName isEqualToString:@"lon"]) {
+    } else if ([elementName isEqualToString:@"x"]) {
         inElement = NO;
-    } else if ([elementName isEqualToString:@"lat"]) {
+    } else if ([elementName isEqualToString:@"y"]) {
         inElement = NO;
     }
     
@@ -125,7 +125,7 @@
                                                                                       NULL,
                                                                                       (__bridge CFStringRef)@"!*'();:@&amp;=+$,/?%#[]",
                                                                                       kCFStringEncodingUTF8);
-    url = [NSString stringWithFormat:@"http://www.ekidata.jp/api/n.php?w=%@", encodedStationName];
+    url = [NSString stringWithFormat:@"http://express.heartrails.com/api/xml?method=getStations&name=%@", encodedStationName];
     xmlURL = [NSURL URLWithString:url];
     xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
     [xmlParser setDelegate:self];
