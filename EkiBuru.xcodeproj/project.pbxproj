@@ -16,6 +16,22 @@
 		70B4999F16188CEA00C919D4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B4999E16188CEA00C919D4 /* Default.png */; };
 		70B499A116188CEA00C919D4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B499A016188CEA00C919D4 /* Default@2x.png */; };
 		70B499A316188CEA00C919D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B499A216188CEA00C919D4 /* Default-568h@2x.png */; };
+		70B499AA16188D3700C919D4 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B499A916188D3700C919D4 /* iAd.framework */; };
+		70B499AC16188D4600C919D4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B499AB16188D4600C919D4 /* CoreLocation.framework */; };
+		70B499AE16188D5600C919D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B499AD16188D5600C919D4 /* AudioToolbox.framework */; };
+		70B499B016188D8C00C919D4 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B499AF16188D8C00C919D4 /* icon@2x.png */; };
+		70B499B216188D9300C919D4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B499B116188D9300C919D4 /* icon.png */; };
+		70B499B616188E1E00C919D4 /* AlarmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B499B416188E1D00C919D4 /* AlarmsViewController.m */; };
+		70B499B716188E1E00C919D4 /* AlarmsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B499B516188E1D00C919D4 /* AlarmsViewController.xib */; };
+		70B499BB16188E4600C919D4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B499B916188E4600C919D4 /* SettingsViewController.m */; };
+		70B499BC16188E4600C919D4 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B499BA16188E4600C919D4 /* SettingsViewController.xib */; };
+		70B499C016188E6000C919D4 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B499BE16188E6000C919D4 /* StationViewController.m */; };
+		70B499C116188E6000C919D4 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B499BF16188E6000C919D4 /* StationViewController.xib */; };
+		70B499C516188E7000C919D4 /* SphereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B499C316188E7000C919D4 /* SphereViewController.m */; };
+		70B499C616188E7000C919D4 /* SphereViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B499C416188E7000C919D4 /* SphereViewController.xib */; };
+		70B499C91618907C00C919D4 /* AlarmItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B499C81618907C00C919D4 /* AlarmItem.m */; };
+		70B499CC1618909700C919D4 /* AlarmItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B499CB1618909700C919D4 /* AlarmItemCell.m */; };
+		70B499CE16189B2000C919D4 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B499CD16189B2000C919D4 /* bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +48,28 @@
 		70B4999E16188CEA00C919D4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		70B499A016188CEA00C919D4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		70B499A216188CEA00C919D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		70B499A916188D3700C919D4 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		70B499AB16188D4600C919D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		70B499AD16188D5600C919D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		70B499AF16188D8C00C919D4 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		70B499B116188D9300C919D4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		70B499B316188E1D00C919D4 /* AlarmsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmsViewController.h; sourceTree = "<group>"; };
+		70B499B416188E1D00C919D4 /* AlarmsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmsViewController.m; sourceTree = "<group>"; };
+		70B499B516188E1D00C919D4 /* AlarmsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmsViewController.xib; sourceTree = "<group>"; };
+		70B499B816188E4600C919D4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		70B499B916188E4600C919D4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		70B499BA16188E4600C919D4 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		70B499BD16188E6000C919D4 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
+		70B499BE16188E6000C919D4 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		70B499BF16188E6000C919D4 /* StationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationViewController.xib; sourceTree = "<group>"; };
+		70B499C216188E6F00C919D4 /* SphereViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereViewController.h; sourceTree = "<group>"; };
+		70B499C316188E7000C919D4 /* SphereViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereViewController.m; sourceTree = "<group>"; };
+		70B499C416188E7000C919D4 /* SphereViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SphereViewController.xib; sourceTree = "<group>"; };
+		70B499C71618907C00C919D4 /* AlarmItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmItem.h; sourceTree = "<group>"; };
+		70B499C81618907C00C919D4 /* AlarmItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmItem.m; sourceTree = "<group>"; };
+		70B499CA1618909700C919D4 /* AlarmItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmItemCell.h; sourceTree = "<group>"; };
+		70B499CB1618909700C919D4 /* AlarmItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmItemCell.m; sourceTree = "<group>"; };
+		70B499CD16189B2000C919D4 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B499AE16188D5600C919D4 /* AudioToolbox.framework in Frameworks */,
+				70B499AC16188D4600C919D4 /* CoreLocation.framework in Frameworks */,
+				70B499AA16188D3700C919D4 /* iAd.framework in Frameworks */,
 				70B4998D16188CEA00C919D4 /* UIKit.framework in Frameworks */,
 				70B4998F16188CEA00C919D4 /* Foundation.framework in Frameworks */,
 				70B4999116188CEA00C919D4 /* CoreGraphics.framework in Frameworks */,
@@ -51,6 +92,9 @@
 		70B4997D16188CEA00C919D4 = {
 			isa = PBXGroup;
 			children = (
+				70B499B116188D9300C919D4 /* icon.png */,
+				70B499AF16188D8C00C919D4 /* icon@2x.png */,
+				70B499CD16189B2000C919D4 /* bg.png */,
 				70B4999216188CEA00C919D4 /* EkiBuru */,
 				70B4998B16188CEA00C919D4 /* Frameworks */,
 				70B4998916188CEA00C919D4 /* Products */,
@@ -68,6 +112,9 @@
 		70B4998B16188CEA00C919D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70B499AD16188D5600C919D4 /* AudioToolbox.framework */,
+				70B499AB16188D4600C919D4 /* CoreLocation.framework */,
+				70B499A916188D3700C919D4 /* iAd.framework */,
 				70B4998C16188CEA00C919D4 /* UIKit.framework */,
 				70B4998E16188CEA00C919D4 /* Foundation.framework */,
 				70B4999016188CEA00C919D4 /* CoreGraphics.framework */,
@@ -80,6 +127,22 @@
 			children = (
 				70B4999B16188CEA00C919D4 /* AppDelegate.h */,
 				70B4999C16188CEA00C919D4 /* AppDelegate.m */,
+				70B499B316188E1D00C919D4 /* AlarmsViewController.h */,
+				70B499B416188E1D00C919D4 /* AlarmsViewController.m */,
+				70B499B516188E1D00C919D4 /* AlarmsViewController.xib */,
+				70B499B816188E4600C919D4 /* SettingsViewController.h */,
+				70B499B916188E4600C919D4 /* SettingsViewController.m */,
+				70B499BA16188E4600C919D4 /* SettingsViewController.xib */,
+				70B499BD16188E6000C919D4 /* StationViewController.h */,
+				70B499BE16188E6000C919D4 /* StationViewController.m */,
+				70B499BF16188E6000C919D4 /* StationViewController.xib */,
+				70B499C216188E6F00C919D4 /* SphereViewController.h */,
+				70B499C316188E7000C919D4 /* SphereViewController.m */,
+				70B499C416188E7000C919D4 /* SphereViewController.xib */,
+				70B499C71618907C00C919D4 /* AlarmItem.h */,
+				70B499C81618907C00C919D4 /* AlarmItem.m */,
+				70B499CA1618909700C919D4 /* AlarmItemCell.h */,
+				70B499CB1618909700C919D4 /* AlarmItemCell.m */,
 				70B4999316188CEA00C919D4 /* Supporting Files */,
 			);
 			path = EkiBuru;
@@ -154,6 +217,13 @@
 				70B4999F16188CEA00C919D4 /* Default.png in Resources */,
 				70B499A116188CEA00C919D4 /* Default@2x.png in Resources */,
 				70B499A316188CEA00C919D4 /* Default-568h@2x.png in Resources */,
+				70B499B016188D8C00C919D4 /* icon@2x.png in Resources */,
+				70B499B216188D9300C919D4 /* icon.png in Resources */,
+				70B499B716188E1E00C919D4 /* AlarmsViewController.xib in Resources */,
+				70B499BC16188E4600C919D4 /* SettingsViewController.xib in Resources */,
+				70B499C116188E6000C919D4 /* StationViewController.xib in Resources */,
+				70B499C616188E7000C919D4 /* SphereViewController.xib in Resources */,
+				70B499CE16189B2000C919D4 /* bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +236,12 @@
 			files = (
 				70B4999916188CEA00C919D4 /* main.m in Sources */,
 				70B4999D16188CEA00C919D4 /* AppDelegate.m in Sources */,
+				70B499B616188E1E00C919D4 /* AlarmsViewController.m in Sources */,
+				70B499BB16188E4600C919D4 /* SettingsViewController.m in Sources */,
+				70B499C016188E6000C919D4 /* StationViewController.m in Sources */,
+				70B499C516188E7000C919D4 /* SphereViewController.m in Sources */,
+				70B499C91618907C00C919D4 /* AlarmItem.m in Sources */,
+				70B499CC1618909700C919D4 /* AlarmItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +268,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yusuke Yasuo";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -206,6 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "D736755B-3736-40AE-AAC8-B41BE4AF8874";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -219,6 +297,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yusuke Yasuo";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -227,6 +306,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "D736755B-3736-40AE-AAC8-B41BE4AF8874";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -273,6 +353,7 @@
 				70B499A816188CEA00C919D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
