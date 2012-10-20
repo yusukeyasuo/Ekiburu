@@ -74,12 +74,27 @@
 // 完了ボタンを押したときの処理
 - (void)doneRow:(id)selector
 {
-    if (add_edit == nil) {
-        [[AlarmItem sharedManager] addStation:[editItem objectAtIndex:0] addSphere:[editItem objectAtIndex:1] addLon:[target_location objectAtIndex:0] addLat:[target_location objectAtIndex:1]];
-    } else {
-        [[AlarmItem sharedManager] editStation:[editItem objectAtIndex:0] editSphere:[editItem objectAtIndex:1] editLon:[target_location objectAtIndex:0] editLat:[target_location objectAtIndex:1] index:[add_edit intValue]];
+    int overlap = 0;
+    NSLog(@"station0:%@", [editItem objectAtIndex:0]);
+    for (int i=0; i<[[AlarmItem sharedManager].stations count]; i++){
+        NSLog(@"station:%@", [[AlarmItem sharedManager].stations objectAtIndex:i]);
+        if ([[editItem objectAtIndex:0] isEqualToString:[[AlarmItem sharedManager].stations objectAtIndex:i]]) {
+            overlap ++;
+        }
     }
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    if (overlap == 0) {
+        if (add_edit == nil) {
+            [[AlarmItem sharedManager] addStation:[editItem objectAtIndex:0] addSphere:[editItem objectAtIndex:1] addLon:[target_location objectAtIndex:0] addLat:[target_location objectAtIndex:1]];
+        } else {
+            [[AlarmItem sharedManager] editStation:[editItem objectAtIndex:0] editSphere:[editItem objectAtIndex:1] editLon:[target_location objectAtIndex:0] editLat:[target_location objectAtIndex:1] index:[add_edit intValue]];
+        }
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } else {
+		// アラートを表示
+        NSString *message = [NSString stringWithFormat:@"%@駅はすでに登録されています", [editItem objectAtIndex:0]];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 // キャンセルボタンを押したときの処理

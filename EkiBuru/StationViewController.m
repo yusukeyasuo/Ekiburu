@@ -193,7 +193,7 @@
     NSArray *array = self.navigationController.viewControllers;
     int arrayCount = [array count];
     SettingsViewController *parent = [array objectAtIndex:arrayCount - 2];
-    NSString *station = [stations objectAtIndex:indexPath.row];
+    NSString *station =[NSString stringWithFormat:@"%@", [stations objectAtIndex:indexPath.row]];
     [parent.editItem removeObjectAtIndex:0];
     [parent.editItem insertObject:station atIndex:0];
     [parent.target_location removeAllObjects];
