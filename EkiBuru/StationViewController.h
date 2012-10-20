@@ -16,7 +16,6 @@
     NSString *stationName;
     NSString *encodedStationName;
     NSString *url;
-    NSURL *xmlURL;
     NSMutableArray *stations;
     NSMutableArray *lines;
     NSMutableArray *lon;
@@ -24,6 +23,8 @@
     NSString *line;
     BOOL inElement;
     IBOutlet UITableView *stationList;
+    NSURLConnection *_connection;
+    NSMutableData *_xmlData;
 }
 
 @property (nonatomic, strong) NSMutableArray *test;

@@ -126,12 +126,40 @@
                                                                                       (__bridge CFStringRef)@"!*'();:@&amp;=+$,/?%#[]",
                                                                                       kCFStringEncodingUTF8);
     url = [NSString stringWithFormat:@"http://express.heartrails.com/api/xml?method=getStations&name=%@", encodedStationName];
-    xmlURL = [NSURL URLWithString:url];
-    xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
-    [xmlParser setDelegate:self];
-    [xmlParser parse];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+// 非同期通信 ヘッダーが返ってきた
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    // データを初期化
+    _xmlData = [[NSMutableData alloc] initWithData:0];
+    // インジケーターの表示
+}
+
+// 非同期通信 ダウンロード中
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // データを追加する
+    [_xmlData appendData:data];
+}
+
+// 非同期通信 エラー
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
+
+// 非同期通信 ダウンロード完了
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    xmlParser = [[NSXMLParser alloc] initWithData:_xmlData];
+    [xmlParser setDelegate:self];
+    [xmlParser parse];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
