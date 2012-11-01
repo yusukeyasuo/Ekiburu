@@ -21,6 +21,7 @@
 @synthesize editItem;
 @synthesize target_location;
 @synthesize add_edit;
+@synthesize before_edit;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -91,9 +92,14 @@
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     } else {
 		// アラートを表示
-        NSString *message = [NSString stringWithFormat:@"%@駅はすでに登録されています", [editItem objectAtIndex:0]];
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        if ([before_edit isEqualToString:[editItem objectAtIndex:0]]) {
+            [[AlarmItem sharedManager] editStation:[editItem objectAtIndex:0] editSphere:[editItem objectAtIndex:1] editLon:[target_location objectAtIndex:0] editLat:[target_location objectAtIndex:1] index:[add_edit intValue]];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            NSString *message = [NSString stringWithFormat:@"%@駅はすでに登録されています", [editItem objectAtIndex:0]];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
     }
 }
 

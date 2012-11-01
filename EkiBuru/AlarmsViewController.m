@@ -57,10 +57,13 @@
 		locationManager.delegate = self;
 		[locationManager startUpdatingLocation];
 	}
+    [locationManager stopUpdatingLocation];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    _numberOfOn = 0;
     [self.tableView reloadData];
     if (self.tableView.editing) {
         [self setEditing:NO animated:YES];
@@ -77,6 +80,7 @@
 
 // 位置情報が取得成功した場合にコールされる
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    NSLog(@"load");
 	// 位置情報更新
 	_longitude = newLocation.coordinate.longitude;
 	_latitude = newLocation.coordinate.latitude;
@@ -85,6 +89,7 @@
     
     if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateBackground) {
         if (!self.tableView.editing) {
+            _numberOfOn = 0;
             [self.tableView reloadData];
         }
     } else {
@@ -98,6 +103,7 @@
                     [[AlarmItem sharedManager].alarmSwitch replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:NO]];
                     [[AlarmItem sharedManager] save];
                     [self fireLocalNotificationNow:@"目的地エリアに到着しました"];
+                    _numberOfOn = 0;
                     [self.tableView reloadData];
                 }
             }
@@ -271,6 +277,9 @@
     cell.sphereLabel.text = [NSString stringWithFormat:@"%@m", str_sphere];
     cell.alarmSwitch.on = [[[AlarmItem sharedManager].alarmSwitch objectAtIndex:indexPath.row] boolValue];
     if (cell.alarmSwitch.on) {
+        _numberOfOn ++;
+    }
+    if (cell.alarmSwitch.on) {
         double distance = [self distance:present index:indexPath.row];
         if (distance < 1000) {
             cell.distanceLabel.text = [NSString stringWithFormat:@"距離: %dm", (int)distance];
@@ -285,11 +294,21 @@
             [[UIAlertView alloc] initWithTitle:@"お知らせ" message:@"目的地エリアに到着しました"
                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
+            _numberOfOn = 0;
             [self.tableView reloadData];
             [self callVibrate];
         }
     } else {
         cell.distanceLabel.text = @"停止";
+    }
+    
+    // 位置情報取得するかどうか判定
+    if (indexPath.row == ([[AlarmItem sharedManager].stations count] - 1)) {
+        if (_numberOfOn) {
+            [locationManager startUpdatingLocation];
+        } else {
+            [locationManager stopUpdatingLocation];
+        }
     }
     
     return cell;
@@ -345,6 +364,7 @@
     
     if (self.tableView.editing) {
         SettingsViewController *settingController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+        settingController.before_edit = [[AlarmItem sharedManager].stations objectAtIndex:indexPath.row];
         settingController.add_edit = [NSNumber numberWithInt:indexPath.row];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingController];
         [self presentViewController:navController animated:YES completion:nil];

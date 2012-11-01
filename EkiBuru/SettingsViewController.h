@@ -31,5 +31,6 @@
 @property (nonatomic, strong) NSMutableArray *editItem;
 @property (nonatomic, strong) NSMutableArray *target_location;
 @property (nonatomic, strong) NSNumber *add_edit;
+@property (nonatomic, strong) NSString *before_edit;
 
 @end

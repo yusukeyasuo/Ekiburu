@@ -27,6 +27,8 @@
     
     IBOutlet ADBannerView* _adView;
     BOOL _bannerIsVisible;
+    
+    int _numberOfOn;
 
 }
 

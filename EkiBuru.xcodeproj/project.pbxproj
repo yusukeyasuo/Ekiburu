@@ -317,6 +317,8 @@
 				GCC_PREFIX_HEADER = "EkiBuru/EkiBuru-Prefix.pch";
 				INFOPLIST_FILE = "EkiBuru/EkiBuru-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -328,6 +330,8 @@
 				GCC_PREFIX_HEADER = "EkiBuru/EkiBuru-Prefix.pch";
 				INFOPLIST_FILE = "EkiBuru/EkiBuru-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
