@@ -76,9 +76,7 @@
 - (void)doneRow:(id)selector
 {
     int overlap = 0;
-    NSLog(@"station0:%@", [editItem objectAtIndex:0]);
     for (int i=0; i<[[AlarmItem sharedManager].stations count]; i++){
-        NSLog(@"station:%@", [[AlarmItem sharedManager].stations objectAtIndex:i]);
         if ([[editItem objectAtIndex:0] isEqualToString:[[AlarmItem sharedManager].stations objectAtIndex:i]]) {
             overlap ++;
         }

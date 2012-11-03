@@ -57,13 +57,11 @@
 		locationManager.delegate = self;
 		[locationManager startUpdatingLocation];
 	}
-    [locationManager stopUpdatingLocation];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    _numberOfOn = 0;
     [self.tableView reloadData];
     if (self.tableView.editing) {
         [self setEditing:NO animated:YES];
@@ -89,7 +87,6 @@
     
     if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateBackground) {
         if (!self.tableView.editing) {
-            _numberOfOn = 0;
             [self.tableView reloadData];
         }
     } else {
@@ -103,7 +100,6 @@
                     [[AlarmItem sharedManager].alarmSwitch replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:NO]];
                     [[AlarmItem sharedManager] save];
                     [self fireLocalNotificationNow:@"目的地エリアに到着しました"];
-                    _numberOfOn = 0;
                     [self.tableView reloadData];
                 }
             }
@@ -277,9 +273,6 @@
     cell.sphereLabel.text = [NSString stringWithFormat:@"%@m", str_sphere];
     cell.alarmSwitch.on = [[[AlarmItem sharedManager].alarmSwitch objectAtIndex:indexPath.row] boolValue];
     if (cell.alarmSwitch.on) {
-        _numberOfOn ++;
-    }
-    if (cell.alarmSwitch.on) {
         double distance = [self distance:present index:indexPath.row];
         if (distance < 1000) {
             cell.distanceLabel.text = [NSString stringWithFormat:@"距離: %dm", (int)distance];
@@ -294,7 +287,6 @@
             [[UIAlertView alloc] initWithTitle:@"お知らせ" message:@"目的地エリアに到着しました"
                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            _numberOfOn = 0;
             [self.tableView reloadData];
             [self callVibrate];
         }
@@ -302,16 +294,26 @@
         cell.distanceLabel.text = @"停止";
     }
     
-    // 位置情報取得するかどうか判定
-    if (indexPath.row == ([[AlarmItem sharedManager].stations count] - 1)) {
-        if (_numberOfOn) {
-            [locationManager startUpdatingLocation];
-        } else {
-            [locationManager stopUpdatingLocation];
-        }
-    }
+    [self updatingLocation];
     
     return cell;
+}
+
+// 位置情報取得するかどうか判定
+- (void)updatingLocation
+{
+    int i;
+    _numberOfOn = 0;
+    for (i = 0; i < [[AlarmItem sharedManager].stations count]; i++) {
+        if ([[[AlarmItem sharedManager].alarmSwitch objectAtIndex:i] boolValue]) {
+            _numberOfOn++;
+        }
+    }
+    if (_numberOfOn) {
+        [locationManager startUpdatingLocation];
+    } else {
+        [locationManager stopUpdatingLocation];
+    }
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
